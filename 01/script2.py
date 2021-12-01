@@ -1,25 +1,34 @@
 file = open("input.txt", "r")
-lines = file.readlines()
 
 #constant
 wSize = 3
 
-count = 0
+
+#rotating array to hold the last wSize elements
+winIdx = 0
+window = []
 
 #prelogue
-sum = int(lines[0])
-for i in range(1, wSize):
-    currValue = int(lines[i])
-    sum += + int(lines[i])
+for i in range(0, wSize):
+    currValue = int(file.readline())
+    window.append(currValue)
 
-for i in range(wSize, len(lines)):
-    currValue = int(lines[i])
-    tailValue = int(lines[i - wSize])
+count = 0
+sum = sum(window)
+while True:
+    currLine = file.readline()
+    if(currLine == ""):
+        break
     
-    currSum = sum + currValue - tailValue
+    currValue = int(currLine)
+    currSum = sum + currValue - window[winIdx]
     if(sum < currSum):
         count += 1
 
     sum = currSum
+    window[winIdx] = currValue
+    winIdx += 1
+    if winIdx >= wSize:
+        winIdx = 0
 
 print(count)
