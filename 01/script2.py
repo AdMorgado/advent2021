@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 file = open("input.txt", "r")
 
 #constant
