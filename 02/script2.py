@@ -14,11 +14,11 @@ while True:
     command, x = line.split(" ")
     firstChar = command[0]
     value = int(x)
-    if firstChar == 'u':
+    if firstChar == 'u': #up
         aim -= value
-    elif firstChar == 'd':
+    elif firstChar == 'd': #down
         aim += value
-    elif firstChar == 'f':
+    elif firstChar == 'f': #forward
         hor += value
         depth += aim * value
 
